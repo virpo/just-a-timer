@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A stupidly simple, suspiciously good-looking fullscreen timer." />
+    <meta id="theme-color" name="theme-color" content="#5f2ae3" />
+    <meta property="og:title" content="Just a Timer" />
+    <meta property="og:description" content="A stupidly simple, suspiciously good-looking fullscreen timer." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://timer.virpo.io/" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏱️</text></svg>" />
+    <title>Just a Timer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="ui-visible">
+    <main class="timer" id="timer" data-theme="colorful">
+      <header class="topline">
+        <label class="editable-field label-field" for="label-input">
+          <span class="field-name">Label</span>
+          <input id="label-input" type="text" maxlength="60" value="Time left" placeholder="Add label" autocomplete="off" />
+        </label>
+
+        <div class="editable-field time-field" id="time-field">
+          <span class="field-name">End time</span>
+          <button class="time-toggle" id="target-time" type="button" aria-haspopup="dialog" aria-expanded="false">
+            <span class="time-value" id="target-time-value"></span>
+            <span class="empty-value">Set time</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
+          </button>
+
+          <div class="time-popover" id="time-popover" role="dialog" aria-label="Set countdown time" aria-hidden="true" inert>
+            <span class="popover-label">Start a timer</span>
+            <div class="quick-times">
+              <button type="button" data-minutes="5">5 min</button>
+              <button type="button" data-minutes="10">10 min</button>
+              <button type="button" data-minutes="15">15 min</button>
+              <button type="button" data-minutes="30">30 min</button>
+              <button type="button" data-minutes="45">45 min</button>
+              <button type="button" data-minutes="60">60 min</button>
+            </div>
+
+            <span class="popover-label">Or end exactly at</span>
+            <div class="exact-time">
+              <label><span class="sr-only">Hour</span><input id="target-hour" type="number" min="0" max="23" inputmode="numeric" aria-label="Hour" /></label>
+              <span class="time-colon">:</span>
+              <label><span class="sr-only">Minute</span><input id="target-minute" type="number" min="0" max="59" inputmode="numeric" aria-label="Minute" /></label>
+              <button class="set-time" id="set-exact-time" type="button">Set</button>
+            </div>
+
+            <button class="clear-time" id="clear-time" type="button">Clear timer</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="countdown" aria-live="polite" aria-atomic="true">
+        <p class="digits" id="digits">--:--</p>
+        <button class="done" id="done" type="button" hidden title="Edit end message">Done!</button>
+      </section>
+
+      <footer class="footer">
+        <button class="logo-button has-no-logo" id="logo-button" type="button" aria-label="Upload a logo">
+          <img class="brand-logo is-custom" id="brand-logo" alt="Logo" hidden />
+          <span class="logo-placeholder">+ Add logo</span>
+          <span class="logo-action">Change logo</span>
+        </button>
+      </footer>
+
+      <aside class="control-dock" aria-label="Timer controls">
+        <div class="theme-control">
+          <span class="control-label">Theme</span>
+          <div class="theme-options" role="group" aria-label="Background theme">
+            <button class="theme-option theme-option--black" type="button" data-theme-choice="black" aria-label="Black theme">
+              <span class="theme-swatch"></span><span>Black</span>
+            </button>
+            <button class="theme-option theme-option--white" type="button" data-theme-choice="white" aria-label="White theme">
+              <span class="theme-swatch"></span><span>White</span>
+            </button>
+            <button class="theme-option theme-option--color" type="button" data-theme-choice="colorful" aria-label="Colorful theme">
+              <span class="theme-swatch"></span><span>Color</span>
+            </button>
+          </div>
+        </div>
+
+        <span class="dock-divider" aria-hidden="true"></span>
+
+        <label class="end-message-control" for="done-input">
+          <span class="control-label">End message</span>
+          <input id="done-input" type="text" maxlength="60" value="Done!" placeholder="Blank" autocomplete="off" />
+        </label>
+
+        <span class="dock-divider" aria-hidden="true"></span>
+
+        <div class="dock-actions">
+          <button class="icon-button" id="upload-logo" type="button" aria-label="Upload logo" title="Upload logo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14v5h14v-5" /></svg>
+          </button>
+          <button class="icon-button" id="remove-logo" type="button" aria-label="Remove logo" title="Remove logo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" /></svg>
+          </button>
+          <button class="fullscreen-button" id="fullscreen" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M20 15v5h-5M4 15v5h5" /></svg>
+            <span id="fullscreen-label">Fullscreen</span>
+          </button>
+        </div>
+      </aside>
+
+      <input id="logo-file" type="file" accept="image/*" hidden />
+      <p class="status" id="status" role="status"></p>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

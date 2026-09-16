@@ -1,0 +1,28 @@
+{
+  "name": "just-a-timer",
+  "version": "1.0.0",
+  "description": "A stupidly simple, suspiciously good-looking fullscreen timer.",
+  "author": "Peter Hraska (https://virpo.io)",
+  "homepage": "https://timer.virpo.io/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/virpo/just-a-timer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/virpo/just-a-timer/issues"
+  },
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "vite": "^7.3.6"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
