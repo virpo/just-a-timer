@@ -13,7 +13,7 @@ and keeps the screen awake while the timer is open.
 - Counts down to an exact local time
 - Lets you edit the label and finish message
 - Accepts an optional logo from your device
-- Includes black, white, and colorful presentation themes
+- Includes black, white, colorful, and SASK presentation themes
 - Hides every control—and the cursor—when idle
 - Enters fullscreen from the button or the `F` key
 - Stores settings only in your browser
@@ -36,6 +36,11 @@ npm run build
 
 Everything stays in your browser. Uploaded logos are stored as a local data URL
 in `localStorage`; nothing is sent anywhere.
+
+## Brand note
+
+The SASK name, logo, and visual assets belong to SASK and are not covered by
+this project's MIT license.
 
 ## License
 

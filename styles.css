@@ -121,6 +121,25 @@ button {
   background: linear-gradient(90deg, #00e5ff, #ffed4a, #ff4fbc);
 }
 
+.timer[data-theme="sask"] {
+  background:
+    radial-gradient(ellipse 48% 92% at 20% 0%, #b7e2ff 0 56%, transparent 56.4%),
+    linear-gradient(118deg, #2468ff 0 47%, #0a35c4 47% 72%, #c15bff 100%);
+}
+
+.timer[data-theme="sask"]::before {
+  background: url("/sask-arrow-pattern.svg") right bottom / min(54vw, 760px) auto no-repeat;
+  opacity: 0.8;
+}
+
+.timer[data-theme="sask"]::after {
+  background: linear-gradient(90deg, #b7e2ff 0 34%, #2468ff 34% 68%, #c15bff 68%);
+}
+
+.timer[data-theme="sask"] .label-field {
+  color: #092956;
+}
+
 .topline {
   align-items: flex-start;
   display: flex;
@@ -512,6 +531,19 @@ button {
   filter: none;
 }
 
+.brand-logo.is-theme-logo {
+  display: none;
+  filter: invert(1);
+}
+
+.timer[data-theme="sask"] .logo-button.has-no-logo .is-theme-logo {
+  display: block;
+}
+
+.timer[data-theme="sask"] .logo-button.has-no-logo .logo-placeholder {
+  display: none;
+}
+
 .logo-placeholder {
   color: var(--muted);
   display: none;
@@ -639,6 +671,12 @@ button {
 
 .theme-option--color .theme-swatch {
   background: linear-gradient(110deg, #3340e8, #ff3ca6 52%, #ff9417);
+}
+
+.theme-option--sask .theme-swatch {
+  background:
+    linear-gradient(135deg, transparent 45%, rgb(255 255 255 / 60%) 45% 51%, transparent 51%),
+    linear-gradient(110deg, #2468ff 0 52%, #c15bff 100%);
 }
 
 .dock-divider {

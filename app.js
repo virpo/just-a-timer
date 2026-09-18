@@ -1,11 +1,12 @@
 import { addMinutesTarget, formatClockTime, formatRemaining, nextTargetAt } from './timer-utils.js'
 
 const STORAGE_KEY = 'just-a-timer-settings-v1'
-const THEMES = ['black', 'white', 'colorful']
+const THEMES = ['black', 'white', 'colorful', 'sask']
 const THEME_COLORS = {
   black: '#050505',
   white: '#f6f3eb',
   colorful: '#5f2ae3',
+  sask: '#2468ff',
 }
 
 const elements = {
